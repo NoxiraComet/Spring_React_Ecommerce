@@ -1,88 +1,120 @@
-[![Build Status](https://travis-ci.com/merikbest/ecommerce-spring-reactjs.svg?branch=travis-ci-test)](https://travis-ci.com/merikbest/ecommerce-spring-reactjs)
-[![codecov](https://codecov.io/gh/merikbest/ecommerce-spring-reactjs/branch/travis-ci-test/graph/badge.svg?token=sEfOfpBHDX)](https://codecov.io/gh/merikbest/ecommerce-spring-reactjs)
+# Perfume Webstore
 
-# :hibiscus: Perfume webstore
+A full-stack e-commerce application for selling perfumes, built with Spring Boot on the backend and React.js on the frontend.
 
-E-commerce project developed using Spring Boot and React.js.<br>
+This project includes authentication, product management, shopping cart logic, order processing, and a role-based admin dashboard.
 
-#### An actual version of frontend build deployed to AWS S3 and backend deployed to Heroku:
-http://perfume-web.tk <br>
-Login: admin@gmail.com <br>
-Password: admin
+## Tech Stack
 
-## Used Technologies:
+### Backend
+- Java 8+
+- Spring Boot
+- Spring Data JPA
+- Spring Security
+- PostgreSQL
+- JWT authentication
+- REST API
+- GraphQL API
+- JUnit and Mockito for testing
 
-* Back-end: Spring (Boot, Data, Security), JPA / Hibernate, PostgreSQL, JUnit, Mockito
-* Front-end: TypeScript, React.js, Redux Toolkit, Ant Design, Jest
-* Security: JWT, OAuth2 Google, Facebook, Github
-* REST API, GraphQL API
-* AWS S3, Heroku
-* Server Build: Maven
-* Client Build: npm, yarn, webpack
+### Frontend
+- React.js
+- TypeScript
+- Redux Toolkit
+- Ant Design
+- npm / yarn
+
+### Infrastructure
+- AWS S3
+- Heroku
+- Maven
 
 ## Features
 
-* Authentication with JWT and Email validation.
-* Authentication with Google, Facebook or Github
-* Customers can search for the product according to the specified criteria.
-* Customers can add and delete products from the shopping cart.
-* Customers can order the products in the shopping cart.
-* Customers can change their password and view their orders.
-* Admin can add or modify a product.
-* Admin can change the data of any user.
-* Admin can view orders of all users.
+- JWT-based authentication and email verification
+- Login via Google, Facebook, or GitHub
+- Product search and filtering
+- Add/remove products from the shopping cart
+- Place and manage orders
+- Change password and view order history
+- Admin dashboard to manage products and users
+- Admin ability to view all customer orders
 
-## Installation
+## Project Structure
 
-1. Install maven: [link](https://www.baeldung.com/install-maven-on-windows-linux-mac)
-2. Install Java 8: [link](https://www.oracle.com/ru/java/technologies/javase/javase8-archive-downloads.html)
-3. Install Intellij IDEA Ultimate: [link](https://www.jetbrains.com/idea/)
-4. Install Postgresql: [link](https://www.postgresql.org/download/)
-5. Open pgAdmin and create a new DB (name: perfume and perfumetest) in Postgresql: [link](https://www.guru99.com/postgresql-create-database.html#:~:text=PostgreSQL%20Create%20Database%20using%20pgAdmin)
-6. Add Postgresql properties to the application.properties file: [link](https://i.ibb.co/dL77cZS/prop-postgresql.png)
-7. Add Lombok and GraphQL plugins to the Intellij IDEA (File/Settings/Plugins)
-8. Register new AWS account: [link](https://portal.aws.amazon.com/billing/signup#/start)
-9. Create new S3 bucket: [link](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html)
-10. Change access from private to public in S3 bucket
-11. Add public access policy to S3 bucket (!!!important!!! see:
-    [doc](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-policy-language-overview.html),
-    [github examle](https://stackoverflow.com/questions/58580042/how-to-set-public-read-only-access-on-amazon-s3-bucket#:~:text=To%20make%20objects%20publicly%20accessible%2C%20use%20a%20policy%20like%20this%3A) or
-    [my example](https://i.ibb.co/mSpHmyL/12-bucket.jpg ))
-13. Register in gmail
-14. Configure reCAPTCHA: [link](https://www.google.com/recaptcha/admin#list), [guide](https://developers.google.com/recaptcha/docs/verify), [video guide (RUS)](https://youtu.be/7cDpbAbhyjc?t=212)
-15. Add  reCAPTCHA key to the application.properties file: [link](https://i.ibb.co/nDTP8H5/prop-recaptcha.png) and to [link](https://github.com/merikbest/ecommerce-spring-reactjs/blob/4f74f86500ab9363c04a18412dd432bd913e0477/frontend/src/pages/Registration/Registration.tsx#L134)
-16. Add gmail account and password to the application.properties file: [link](https://i.ibb.co/0tRr1Gy/props-gmail.png)
-17. Go to [link](https://myaccount.google.com/u/2/lesssecureapps) (important) and change to: “Allow less secure apps: ON”
-18. Configure OAuth2: [link](https://console.cloud.google.com/apis/credentials), [guide](https://spring.io/guides/tutorials/spring-boot-oauth2/), [video guide (RUS)](https://www.youtube.com/watch?v=-ohlXEJeRX8&ab_channel=letsCode)
-19. Add OAuth2 properties to the application.properties file: [link](https://i.ibb.co/YpH4V3m/oauth2-props.png)
-20. Install node.js and npm: [link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-21. Now you can run EcommerceApplication (port 8080) and open terminal in client directory and type: npm start
-22. Navigate to http://localhost:3000
+- `backend/` — Spring Boot server and business logic
+- `frontend/` — React frontend application
+- `README.md` — project overview and startup instructions
+
+## Prerequisites
+
+Before running the application, install:
+
+1. Java 8+
+2. Maven
+3. Node.js and npm or yarn
+4. PostgreSQL
+5. IntelliJ IDEA (recommended)
+
+## Database Setup
+
+1. Create a PostgreSQL database named `perfume`
+2. Create a second database named `perfumetest`
+3. Update your database configuration in the backend `application.properties` file
+4. Enable the required PostgreSQL JDBC settings for your environment
+
+## Backend Setup
+
+1. Open the backend project in IntelliJ IDEA
+2. Run the main Spring Boot application class
+3. Start the server on port `8080`
+
+## Frontend Setup
+
+From the `frontend` directory:
+
+```bash
+npm install
+npm start
+```
+
+Then open:
+
+```text
+http://localhost:3000
+```
 
 ## Swagger Documentation
 
-https://perfume-websore-api.herokuapp.com/swagger-ui.html <br/>
-Or show local: <br/>
+Local Swagger UI:
+
+```text
 http://localhost:8080/swagger-ui.html
+```
 
-## Screenshots
+## Default Login
 
-Menu page  |  Product page
-:------------------------:|:-------------------------:
-![Menu page](https://i.ibb.co/VT4RzYj/1menu.jpg)  |  ![Product page](https://i.ibb.co/HtnKp0W/2-Product-page.jpg)
+The project includes a demo admin account:
 
-Cart  |  Ordering
-:------------------------:|:-------------------------:
-![Email template](https://i.ibb.co/8Y8bfSG/3-Cart.jpg)  |  ![List of users](https://i.ibb.co/tLmY8y2/4-Ordering.jpg)
+- Email: `admin@gmail.com`
+- Password: `admin`
 
-Email template  |  List of orders
-:------------------------:|:-------------------------:
-![Email template](https://i.ibb.co/bmKTLPJ/email-template.jpg)  |  ![List of users](https://i.ibb.co/pLTyF25/6-List-of-orders.jpg)
+## Notes
 
-User profile page  |  Add perfume page
-:------------------------:|:-------------------------:
-![User profile page](https://i.ibb.co/qx1Csc8/7-User-profile-page.jpg)  |  ![Add perfume page](https://i.ibb.co/XbsJPQH/8-Add-perfume-page.jpg)
+This project was originally based on an existing ecommerce template and has been adapted for personal learning and development use. It is suitable for exploring full-stack Java and React architecture, authentication, and deployment workflows.
 
-Edit perfume list  |  Edit perfume page
-:------------------------:|:-------------------------:
-![Edit perfume list](https://i.ibb.co/HFb9wfR/9-Edit-perfume-list.jpg)  |  ![Edit perfume page](https://i.ibb.co/jH8R8xL/10-Edit-perfume-page.jpg)
+## Run Summary
+
+```bash
+# backend
+mvn spring-boot:run
+
+# frontend
+cd frontend
+npm install
+npm start
+```
+
+## License
+
+This project is licensed under the MIT License.
